@@ -45,7 +45,8 @@ map.on('load', function () {
     // location of the feature, with description HTML from its properties.
     map.on('click', 'country-label', function (e) {
         var coordinates = e.features[0].geometry.coordinates.slice();
-        var description = '<img src="./img/' + e.features[0].properties.name_en + '.svg" class="flag" /><br><a href="https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads#' + e.features[0].properties.name_en + '">Team info..</a>';
+        var country = e.features[0].properties.name_en.toLowerCase();
+        var description = '<img src="./img/' + country + '.svg" class="flag" /><br><a href="https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads#' + e.features[0].properties.name_en + '">Team info..</a>';
 
         // Ensure that if the map is zoomed out such that multiple
         // copies of the feature are visible, the popup appears
